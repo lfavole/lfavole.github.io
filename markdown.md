@@ -332,10 +332,10 @@ Logo du site de l'aumônerie :
 **Résultat :**
 
 Logo du site du caté :
-![Logo du site du caté](https://cate.epizy.com/espacecate/favicon.png)
+![Logo du site du caté](https://lfavole.github.io/espacecate/espacecate/favicon.png)
 
 Logo du site de l'aumônerie :
-![Logo du site de l'aumônerie](https://cate.epizy.com/aumonerie/favicon.png)
+![Logo du site de l'aumônerie](https://lfavole.github.io/espacecate/aumonerie/favicon.png)
 
 ## Barre horizontale
 
