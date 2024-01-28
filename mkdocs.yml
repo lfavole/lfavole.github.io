@@ -1,0 +1,67 @@
+site_name: Mon site
+theme:
+  name: material
+  language: fr
+
+  palette:
+    # Palette toggle for automatic mode
+    - primary: green
+      accent: green
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - primary: green
+      accent: green
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - primary: green
+      accent: green
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to system preference
+
+  features:
+    - announce.dismiss
+    - blog
+    - content.code.copy
+    - content.tooltips
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - toc.follow
+
+plugins:
+  - blog
+  - minify:
+      minify_html: true
+      minify_css: true
+      htmlmin_opts:
+          remove_comments: true
+      cache_safe: true
+  - privacy
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.superfences
+  - toc:
+      permalink: True
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/suncalc@1
+  - javascripts/extra.js

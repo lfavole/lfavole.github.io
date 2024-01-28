@@ -1,0 +1,53 @@
+.md-typeset h1 .headerlink {
+    display: none;
+}
+
+main label:has(+ textarea)::after {
+    content: "";
+    display: block;
+}
+main input, main button, main select, main textarea {
+    font: inherit;
+    border-radius: 1em;
+    padding: 0.1em 0.5em;
+    vertical-align: middle;
+    border: 1px solid currentcolor;
+}
+main input, main button, main select {
+    min-width: 6em;
+}
+main input[type="number"] {
+    width: 6em;
+    text-align: center;
+}
+main input[type="checkbox"], main input[type="radio"], main input[type="submit"], main input[type="button"], main button, main select {
+    cursor: pointer;
+}
+main input[type="checkbox"], main input[type="radio"] {
+    min-width: unset;
+}
+main input[type="submit"], main input[type="button"], main button, main select {
+    background-color: #bbdefb;
+    color: black;
+    font-weight: bold;
+    border-color: black;
+    transition: background-color 0.4s, color 0.4s;
+}
+main input[type="submit"]:hover, main input[type="button"]:hover, main button:hover, main select:hover {
+    background-color: #2196f3;
+    color: white;
+}
+main textarea {
+    padding: 0.4em;
+    width: 25em;
+    height: 10em;
+    max-height: 15em;
+    resize: vertical;
+    margin-top: 0.25em;
+}
+.helptext {
+    display: block;
+    font-size: 0.85em;
+    font-style: italic;
+    color: #888;
+}
