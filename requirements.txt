@@ -1,0 +1,2 @@
+mkdocs-material ~= 9.5
+mkdocs_minify_plugin ~= 0.7

@@ -1,0 +1,12 @@
+image: python:3.11
+
+pages:
+  script:
+    - python -m pip install -r requirements.txt
+    - mkdocs build -d public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  environment: production
