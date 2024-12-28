@@ -1,0 +1,25 @@
+{% extends "juice/templates/index.html" %}
+
+{% block favicon %}
+    <link rel="icon" type="image/png" href="{{ get_url(path=config.extra.juice_logo_path) }}">
+{% endblock favicon %}
+
+{% block title %}Mon site{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ get_url(path="overrides.css") }}">
+{{ super() }}
+{% endblock head %}
+
+{% block hero %}
+<section class="text-center">
+    <h1 class="heading-text">Bienvenue sur mon site !</h1>
+    <h3 class="title-text">Vous pouvez découvrir mes projets ici.</h3>
+</section>
+<img class="hero-image" src="{{ get_url(path=config.extra.juice_logo_path) }}">
+{% endblock hero %}
+
+{% block sidebar %}{% endblock sidebar %}
+
+<!-- TODO -->
+{% block content %}{% endblock content %}

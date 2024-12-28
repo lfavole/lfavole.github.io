@@ -1,0 +1,35 @@
+@media screen and (min-width: 76.234375em) {
+	.md-content form p {
+		display: inline-block;
+		margin-right: 0.3em;
+	}
+}
+
+.md-content pre {
+	font-size: 28px;
+	margin: 0px;
+	margin-right: 8px;
+}
+.md-content pre u {
+	text-decoration: none;
+	border-bottom: 0.125em solid currentcolor;
+}
+.md-typeset table:not([class]) tbody tr:hover {
+	background: none;
+	box-shadow: none;
+}
+#result td {
+	padding: 0 0.5em;
+}
+#result .division, #result .result {
+	vertical-align: top;
+}
+#result .divisor {
+	border-bottom: 0.25em solid currentcolor;
+	height: 1.6em;
+}
+#result .divisor, #result .result {
+	border-left: 0.25em solid currentcolor;
+	font-size: 2em;
+	padding: 0 0.5em;
+}

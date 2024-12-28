@@ -1,0 +1,49 @@
+label:has(+ textarea)::after {
+    content: "";
+    display: block;
+}
+input, button, select, textarea {
+    font: inherit;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em;
+    vertical-align: middle;
+    border: 1px solid currentcolor;
+}
+input, button, select {
+    min-width: 6em;
+}
+input[type="number"] {
+    width: 6em;
+    text-align: center;
+}
+input[type="checkbox"], input[type="radio"], input[type="submit"], input[type="button"], button, select {
+    cursor: pointer;
+}
+input[type="checkbox"], input[type="radio"] {
+    min-width: unset;
+}
+input[type="submit"], input[type="button"], button, select {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    font-weight: bold;
+    border-color: var(--primary-text-color);
+    transition: background-color 0.4s, color 0.4s;
+}
+input[type="submit"]:hover, input[type="button"]:hover, button:hover, select:hover {
+    background-color: var(--primary-link-color);
+    color: var(--secondary-color);
+}
+textarea {
+    padding: 0.4em;
+    width: 25em;
+    height: 10em;
+    max-height: 15em;
+    resize: vertical;
+    margin-top: 0.25em;
+}
+.helptext {
+    display: block;
+    font-size: 0.85em;
+    font-style: italic;
+    color: #888;
+}
