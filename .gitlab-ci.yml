@@ -1,0 +1,13 @@
+image: rust:latest
+
+pages:
+  script:
+    - rustup update stable && rustup default stable
+    - cargo install --git https://github.com/getzola/zola.git --locked
+    - zola build
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  environment: production
