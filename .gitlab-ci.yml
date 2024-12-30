@@ -4,6 +4,15 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 pages:
+  cache:
+    - key:
+        files:
+          - config.toml
+      paths:
+        - ~/.cargo/bin/
+        - ~/.cargo/registry/index/
+        - ~/.cargo/registry/cache/
+        - ~/.cargo/git/db/
   script:
     - rustup update stable && rustup default stable
     - cargo install --git https://github.com/getzola/zola.git --locked
