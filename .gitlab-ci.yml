@@ -1,5 +1,8 @@
 image: rust:latest
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 pages:
   script:
     - rustup update stable && rustup default stable
