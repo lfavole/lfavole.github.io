@@ -15,8 +15,10 @@ pages:
         - ~/.cargo/git/db/
   script:
     - rustup update stable && rustup default stable
-    - cargo install --git https://github.com/getzola/zola.git --locked
+    - cargo install --git https://github.com/getzola/zola.git --locked --force
     - zola build
+    - echo "$KEYBASE_PROOF" > public/keybase.txt
+    - 'echo "google-site-verification: google$GOOGLE_PROOF.html" > "public/google$GOOGLE_PROOF.html"'
   artifacts:
     paths:
       - public

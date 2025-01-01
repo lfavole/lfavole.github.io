@@ -28,15 +28,21 @@ jobs:
             ~/.cargo/registry/index/
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
-            target/
           key: cargo-stable-${{ runner.os }}-${{ github.sha }}
           restore-keys: cargo-stable-${{ runner.os }}-
 
       - name: Install Zola
-        run: cargo install --git https://github.com/getzola/zola.git --locked
+        run: cargo install --git https://github.com/getzola/zola.git --locked --force
 
       - name: Build the documentation
         run: zola build
+
+      - name: Add Keybase proof
+        run: echo "${{ secrets.KEYBASE_PROOF }}" > public/keybase.txt
+
+      - name: Add Google proof
+        # Use the GOOGLE_PROOF secret to add a Google proof file to the public directory
+        run: 'echo "google-site-verification: google${{ secrets.GOOGLE_PROOF }}.html" > "public/google${{ secrets.GOOGLE_PROOF }}.html"'
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
