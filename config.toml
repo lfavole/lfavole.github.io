@@ -32,8 +32,9 @@ external_links_no_referrer = true
 juice_logo_name = "Laurent FAVOLE"
 juice_logo_path = "logo.jpg"
 juice_extra_menu = [
-    { title = "Outils", link = "https://lfavole.github.io/tools/" },
-    { title = "Flashcards", link = "https://lfavole.github.io/flashcards/" },
+    { title = "Blog", link = "/blog/" },
+    { title = "Outils", link = "/tools/" },
+    { title = "Flashcards", link = "/flashcards/" },
     { title = "GitHub", link = "https://github.com/lfavole" },
 ]
 repository_url = "https://github.com/lfavole/lfavole.github.io"
