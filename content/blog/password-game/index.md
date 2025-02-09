@@ -34,3 +34,10 @@ Get a color that only has letters in it:
 ```javascript
 var i = setInterval(() => {var m = $(".rand-color").style.backgroundColor.match(/rgb\((\d+), (\d+), (\d+)\)/), r = (+m[1]).toString(16).padStart(2, 0), g = (+m[2]).toString(16).padStart(2, 0), b = (+m[3]).toString(16).padStart(2, 0); if(!r.match(/\d/) && !g.match(/\d/) && !b.match(/\d/)) clearInterval(i), console.log(r + g + b); else $(".rand-color .refresh").click()}, 50);
 ```
+
+## UPDATE: Script for [Stimulation Clicker](https://neal.fun/stimulation-clicker/)
+
+To change your stimulation:
+```javascript
+$nuxt.$root.$children[1].$children[0].$children[0]._data.stimulation = 1e30;
+```
