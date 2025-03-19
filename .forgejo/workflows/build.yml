@@ -1,0 +1,43 @@
+name: Build my website
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    name: Build my website
+    runs-on: codeberg-tiny-lazy
+    env:
+      UV_CACHE_DIR: .uv-cache
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          submodules: recursive
+
+      - name: Build the website
+        run: python build_website.py
+        env:
+          GOOGLE_PROOF: ${{ secrets.GOOGLE_PROOF }}
+          KEYBASE_PROOF: ${{ secrets.KEYBASE_PROOF }}
+
+      - name: Deploy to repository
+        run: |
+          mkdir -p ~/.ssh
+          cat << EOF > ~/.ssh/forgejo
+          ${{ secrets.SSH_PRIVATE_KEY }}
+          EOF
+          chmod 400 ~/.ssh/forgejo
+          eval `ssh-agent -s`
+          ssh-add ~/.ssh/forgejo
+          git config --global user.name "forgejo-actions-bot"
+          git config --global user.email "actions@forgejo.local"
+          cd public
+          git init --initial-branch main
+          echo "git@${{ secrets.FORGEJO_URL }}.git" | sed "0,/\//{s/\//:/}" | xargs git remote add origin
+          git add .
+          git commit -m "Deploy site"
+          GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" git push --force origin main
