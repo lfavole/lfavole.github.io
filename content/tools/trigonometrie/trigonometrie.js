@@ -1,5 +1,11 @@
+// https://github.com/Bug-Hunter-X/Infinite-Loop-in-Recursive-GCD-Function-47vrw/blob/main/bugSolution.js
 function gcd(a, b) {
-    return b ? gcd(b, a % b) : Math.abs(a);
+    if (b === 0) {
+        return a;
+    } else if (a === 0) {
+        return b;
+    }
+    return gcd(b % a, a);
 }
 
 function calculateCosineOrSine(func, angle_) {
