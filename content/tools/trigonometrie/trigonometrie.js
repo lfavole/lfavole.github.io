@@ -199,6 +199,8 @@ class Fraction {
         if (this.constructor.SYMBOL) {
             if (this.numerator === -1) {
                 result += "-";
+            } else if (this.numerator !== 1) {
+                result += this.numerator;
             }
         } else {
             result += this.numerator;
@@ -343,11 +345,10 @@ function generateQuestion() {
 
 const questionContainer = document.getElementById("question-container");
 
-let answer;
+let question;
 function displayNewQuestion() {
-    const q = generateQuestion();
-    document.getElementById("question").textContent = q.question;
-    answer = q.answer;
+    question = generateQuestion();
+    document.getElementById("question").textContent = question.question;
     document.getElementById("result").style.display = "none";
     const input = document.getElementById("question-input");
     input.value = "";
@@ -373,14 +374,14 @@ document.getElementById("question-input").addEventListener("input", function() {
 
 document.getElementById("show-answer").addEventListener("click", function() {
     const input = document.getElementById("question-input");
-    input.value = answer;
+    input.value = question.answer;
 });
 
 document.getElementById("trig-form").addEventListener("submit", function(event) {
     event.preventDefault();
     const input = document.getElementById("question-input");
     const resultDiv = document.getElementById("result");
-    if (input.value.trim().replace(/pi/g, "π").replace(/sqrt/g, "√") === answer) {
+    if (input.value.trim().replace(/pi/g, "π").replace(/sqrt/g, "√") === question.answer) {
         resultDiv.innerHTML = "Bonne réponse !";
         resultDiv.className = "result correct";
         setTimeout(displayNewQuestion, 2000); // Display a new question after 2 seconds
