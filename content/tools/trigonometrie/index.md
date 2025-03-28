@@ -1,6 +1,5 @@
 +++
 title = "Quiz sur les fonctions trigonométriques"
-date = 2025-03-28
 +++
 
 # Quiz sur les fonctions trigonométriques
