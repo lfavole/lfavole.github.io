@@ -161,6 +161,7 @@ class Fraction {
     static VALUE = 1;
 
     constructor(numerator, denominator) {
+        // don't simplify too early
         this._numerator = numerator;
         this._denominator = denominator;
         this._simplify();
@@ -189,7 +190,9 @@ class Fraction {
     }
 
     _simplify() {
-        const divisor = gcd(this.numerator, this.denominator);
+        let divisor = gcd(this.numerator, this.denominator);
+        if (this._denominator < 0)
+            divisor = -divisor;
         this._numerator /= divisor;
         this._denominator /= divisor;
     }
