@@ -5,7 +5,7 @@ function gcd(a, b) {
     } else if (a === 0) {
         return b;
     }
-    return gcd(b % a, a);
+    return Math.abs(gcd(b % a, a));
 }
 
 function calculateCosineOrSine(func, angle_) {
