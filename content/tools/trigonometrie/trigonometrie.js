@@ -227,6 +227,10 @@ class PiFraction extends Fraction {
 }
 
 function getPrimeFactors(num) {
+    if (num < 0)
+        throw new Error("Can't get prime factors for a negative number");
+    if (num === 0) return [];
+
     const factors = [];
     // Check for the number of 2s that divide num
     while (num % 2 === 0) {
@@ -273,9 +277,11 @@ class SquareRootFraction extends Fraction {
     static SYMBOL = "√";
 
     _simplify() {
-        const factors = getPrimeFactors(this.numerator);
+        const factors = getPrimeFactors(Math.abs(this.numerator));
         const integer = findPairs(factors);
         const divisor = gcd(integer.reduce((a, b) => a * b, 1), this.denominator);
+        if (this._denominator < 0)
+            divisor = -divisor;
         this._numerator /= divisor * divisor;
         this._denominator /= divisor;
     }
