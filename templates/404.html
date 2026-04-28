@@ -1,0 +1,10 @@
+<!doctype html>
+<title>404 Not Found</title>
+<script>
+window.addEventListener("DOMContentLoaded", function() {
+    const match = location.pathname.match(/^\/(quotes|recipes|temperatures)(\/.*|)$/);
+    if (match)
+        location.pathname = "/opendata" + match[0];
+});
+</script>
+<h1>404 Not Found</h1>
